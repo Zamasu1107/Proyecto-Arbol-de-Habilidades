@@ -1,3 +1,5 @@
+import {escribirDialogo} from '../script.js'
+
 interface personajeVirtual {
     nombre:string;
     rango:string; 
@@ -14,7 +16,7 @@ const usuario = {
     rango: 'Amo'
 }
 
-const asistente:personajeVirtual = {
+export const asistente:personajeVirtual = {
     nombre : 'Raphtalia',
     rango : 'Esclava',
     energia : 10,
@@ -24,32 +26,47 @@ const asistente:personajeVirtual = {
     bienvenidas : [`Raphtalia: Buenos dias ${usuario.nombre}-sama estoy lista para acompañarlo en lo que deseé estudiar!`, `Raphtalia: Buenas tardes ${usuario.rango} ${usuario.nombre}. Listo para una tarde productiva, digame en que le puedo ser de ayuda ${usuario.rango}`, `Raphtalia: Buenas noches ${usuario.rango}. Estudiando tan noche? Hagamos un repaso rapido para que pueda descansar bien ${usuario.nombre}-sama`]
 }
 
-function obtenerSaludo() {
+function obtenerSaludo():string {
     let horaActual:number = new Date().getHours();
     
     if (horaActual < 12) {
-        return asistente.bienvenidas[0];
+        return asistente.bienvenidas[0] || "Hola amo";
     } else if(horaActual < 19) {
-        return asistente.bienvenidas[1];
+        return asistente.bienvenidas[1] || "Hola amo";
     } else {
-        return asistente.bienvenidas[2];
+        return asistente.bienvenidas[2] || "Hola amo";
     }
 }
 
-obtenerSaludo();
-let btn = document.querySelector('train-btn');
+const contenedorRaphtalia = document.getElementById('intro-raphtalia');
 
-function estado():void {
+if (contenedorRaphtalia) {
+    contenedorRaphtalia.textContent = obtenerSaludo();
+} else {
+    console.warn("No se encontró el contenedor del saludo en el DOM.");
+}
+
+export function estado():void {
     let listaUsar:string[] = (asistente.energia > 5) ? asistente.activa : asistente.cansada;
     let randomIndex:number = Math.floor(Math.random() * listaUsar.length);
     
     asistente.energia --;
     asistente.maxEnergia +=10;
+
+    escribirDialogo(`${asistente.nombre}: ${listaUsar[randomIndex]} (Energía: ${asistente.energia}/10)`);
 }
 
-let btnRaphtalia = document.getElementById('descanasar-btn');
-
-function descansar():void {
+function descansarRaphtalia():void {
     asistente.energia = 10;
     asistente.maxEnergia = 0;
+    escribirDialogo(`${asistente.nombre}: Gracias por el descanso ${usuario.rango} ${usuario.nombre}, sigamos esforzandonos juntos (Energía: ${asistente.energia}/10)`);
+    document.getElementById('bar-rapthalia')!.style.width = asistente.maxEnergia + "%";
+}
+
+let botonDescansar = document.getElementById('descansar-btn');
+
+if(botonDescansar) {
+    botonDescansar.addEventListener('click', (event: MouseEvent) => {
+        descansarRaphtalia();
+    })
 }

@@ -22,7 +22,7 @@
             <div class="tired-bar">
                 <div class="tired-fill" id="bar-rapthalia"></div>
             </div>
-            <button onclick="descansarRaphtalia('click',event)" id="descansar-btn">Descansar</button>
+            <button id="descansar-btn">Descansar</button>
         </div>
         <br>
         <div class= "escudo-interfaz">
@@ -37,7 +37,7 @@
                         <div class="progress-fill" id="bar-prog"></div>
                         </div>
 
-                    <button onclick="entrenar('prog', event)" class="train-btn" id="prog-btn">Entrenar</button>
+                    <button class="train-btn" data-tema="prog" id="prog-btn">Entrenar</button>
                     </div>
             </div>
             <br> 
@@ -51,7 +51,7 @@
                     <div class="progress-fill" id="bar-bl3d"></div>
                     </div>
 
-                    <button onclick="entrenar('bl3d', event)" class="train-btn" id="bl3d-btn">Entrenar</button>
+                    <button class="train-btn" data-tema="bl3d" id="bl3d-btn">Entrenar</button>
                 </div>
             </div>
             <br>   
@@ -65,7 +65,7 @@
                     <div class="progress-fill" id="bar-math"></div>
                     </div>
 
-                    <button onclick="entrenar('math', event)" class="train-btn" id="mate-btn">Entrenar</button>
+                    <button class="train-btn" data-tema="math" id="mate-btn">Entrenar</button>
                 </div>
             </div>
             <br>
@@ -79,7 +79,7 @@
                     <div class="progress-fill" id="bar-cond"></div>
                     </div>
 
-                    <button onclick="entrenar('cond', event)" class="train-btn" id="conduc-btn">Entrenar</button>
+                    <button class="train-btn" data-tema="cond" id="conduc-btn">Entrenar</button>
                 </div>
             </div>
             <br>
@@ -93,7 +93,7 @@
                     <div class="progress-fill" id="bar-finz"></div>
                     </div>
 
-                    <button onclick="entrenar('finz', event)" class="train-btn" id="finaz-btn">Entrenar</button>
+                    <button class="train-btn" data-tema="finz" id="finaz-btn">Entrenar</button>
                 </div>
             </div>
             <br>
@@ -107,11 +107,11 @@
                     <div class="progress-fill" id="bar-leng"></div>
                     </div>
 
-                    <button onclick="entrenar('japo', event)" class="train-btn" id="lengua-btn">Entrenar</button>
+                    <button class="train-btn" data-tema="leng" id="lengua-btn">Entrenar</button>
                 </div>
             </div>
         </div>
-        <script src="script.js"></script>   
-        <script src="../proyecto-raphtalia/raphtalia.js"></script>     
+        <script type="module" src="script.js"></script>   
+        <script type="module" src="./proyecto-raphtalia/raphtalia.js"></script>     
     </body>
 </html>
