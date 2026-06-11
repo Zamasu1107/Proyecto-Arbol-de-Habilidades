@@ -1,11 +1,20 @@
-// 1. Se crea un objeto del usuario.
-const usuario = {
-    nombre : 'Andrik' ,
-    rango : 'Amo' 
-};
+interface personajeVirtual {
+    nombre:string;
+    rango:string; 
+    energia:number; 
+    maxEnergia:number;
+    activa:string[]
+    cansada:string[] 
+    bienvenidas:string[]
+}
 
-// 2. Se crea un objeto asistente donde definimos sus caracteristicas y frases a usar.
-const raphtalia = {
+
+const usuario = {
+    nombre: 'Andrik',
+    rango: 'Amo'
+}
+
+const asistente:personajeVirtual = {
     nombre : 'Raphtalia',
     rango : 'Esclava',
     energia : 10,
@@ -15,47 +24,32 @@ const raphtalia = {
     bienvenidas : [`Raphtalia: Buenos dias ${usuario.nombre}-sama estoy lista para acompañarlo en lo que deseé estudiar!`, `Raphtalia: Buenas tardes ${usuario.rango} ${usuario.nombre}. Listo para una tarde productiva, digame en que le puedo ser de ayuda ${usuario.rango}`, `Raphtalia: Buenas noches ${usuario.rango}. Estudiando tan noche? Hagamos un repaso rapido para que pueda descansar bien ${usuario.nombre}-sama`]
 }
 
-// 3. Definimos una funcion horario que acceda a la hora de nuestra computadora y elija ciertas frases especificadas.
-function obtenerSaludoHorario() {
-    const hora = new Date().getHours(); // La variable que consigue la hora.
-    let momento;
-
-    // El bloque logico que asigna cierto lapso de horas a ciertas frases. 
-    if (hora < 12) {
-        return momento = raphtalia.bienvenidas[0];
-    } else if (hora < 19) {
-        return momento = raphtalia.bienvenidas[1];
+function obtenerSaludo() {
+    let horaActual:number = new Date().getHours();
+    
+    if (horaActual < 12) {
+        return asistente.bienvenidas[0];
+    } else if(horaActual < 19) {
+        return asistente.bienvenidas[1];
     } else {
-        return momento = raphtalia.bienvenidas[2];
+        return asistente.bienvenidas[2];
     }
-    
 }
 
-// 4. Conseguimos el lugar donde aparecera el texto en el html usando el DOM y asignando la funcion.
-document.getElementById('intro-raphtalia').textContent = obtenerSaludoHorario();
-// 5. Conseguimos el boton por el cual entrenamos y subimos xp.
-let btn = document.querySelector('train-btn')
+obtenerSaludo();
+let btn = document.querySelector('train-btn');
 
-// 6. 
-function estado() {
+function estado():void {
+    let listaUsar:string[] = (asistente.energia > 5) ? asistente.activa : asistente.cansada;
+    let randomIndex:number = Math.floor(Math.random() * listaUsar.length);
     
-    let listaUsar = (raphtalia.energia > 5) ? raphtalia.activa : raphtalia.cansada;
-    let randomIndex = Math.floor(Math.random() * listaUsar.length);
-    
-    raphtalia.energia--;
-    raphtalia.maxEnergia+=10;
-    
-    escribirDialogo(`${raphtalia.nombre}: ${listaUsar[randomIndex]} (Energía: ${raphtalia.energia}/10)`);
-};
-
-let btnRaphtalia = document.getElementById('descanasar-btn')
-
-function descansarRaphtalia(descansar, event) {
-            raphtalia.energia = 10;
-            raphtalia.maxEnergia = 0;
-            escribirDialogo(`${raphtalia.nombre}: Gracias por el descanso ${usuario.rango} ${usuario.nombre}, sigamos esforzandonos juntos (Energía: ${raphtalia.energia}/10)`);
-            document.getElementById('bar-rapthalia').style.width = raphtalia.maxEnergia + "%";
+    asistente.energia --;
+    asistente.maxEnergia +=10;
 }
- 
 
+let btnRaphtalia = document.getElementById('descanasar-btn');
 
+function descansar():void {
+    asistente.energia = 10;
+    asistente.maxEnergia = 0;
+}
