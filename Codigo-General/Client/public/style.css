@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand:wght@300..700&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@font-face {
+    font-family: 'SabbathBlack';
+    src: url('fonts/SabbathBlackOT-Regular.ttf');
+}
+
+body{
+    background-color: rgb(0, 0, 0);
+}
+
+.escudo-interfaz {
+    background: linear-gradient(#458256, #657a4f, #455732);
+    padding: 10px;
+    display: flexbox;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: solid black;
+    box-shadow: 0 0 10px #47b701;
+}
+
+.rapthalia-interfaz {
+    background: linear-gradient(#6d5142, #b6a067, #9e424d);
+    padding: 10px;
+    display: flexbox;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: solid black;
+    box-shadow: 0 0 10px #ffbc02;
+}
+
+h1 {
+    color: #31262d;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+}
+
+#intro-raphtalia {
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(89, 39, 0);
+    justify-self: unset;
+}
+
+.contenedor-dialogo {
+    display: flex;
+    align-items: center; /* Alinea verticalmente al centro la imagen y la burbuja */
+    gap: 20px;           /* Da espacio entre la imagen y la burbuja */
+    margin-top: 20px;
+}
+
+.img-raphtalia {
+    width: 150px;        /* Ajusta el tamaño a tu gusto */
+    height: 150px;
+    border-radius: 50%;  /* Esto la hace circular, estilo avatar de juego */
+    border: 3px solid #4f3f4a; /* El mismo rosa de Raphtalia */
+    object-fit: cover;   /* Evita que la imagen se estire feo */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* La burbuja principal */
+.burbuja-dialogo {
+    position: relative; /* Necesario para ubicar el 'piquito' */
+    background: rgba(255, 255, 255, 0.9); /* Blanco semi-transparente */
+    border: 3px solid 	#4f3f4a; /* Rosa suave como Raphtalia */
+    border-radius: 20px;
+    padding: 15px 25px;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* El texto dentro de la burbuja */
+#dialogo-raphtalia {
+    font-family: 'Quicksand', sans-serif;
+    color: #5d4037; /* Marrón oscuro, más suave que el negro puro */
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* EL TRUCO DEL PIQUITO: Usamos un 'pseudo-elemento' */
+.burbuja-dialogo::after {
+    content: '';
+    position: absolute;
+    left: -20px; /* Lo movemos a la izquierda */
+    top: 50%;
+    transform: translateY(-50%);
+    
+    /* Creamos un triángulo con bordes */
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 20px solid #4f3f4a; /* Mismo color del borde de la burbuja */
+}
+
+.tired-bar {
+    background-color: rgb(71, 71, 71);
+    width: 100%;
+    height: 20px;
+    border: 3px solid rgb(28, 28, 28);
+    overflow: hidden;
+}
+
+.tired-fill {
+    background-color: rgb(128, 0, 0);
+    height: 100%;
+    width: 0%;
+}
+
+.progress-bar {
+    background-color: rgb(71, 71, 71);
+    width: 100%;
+    height: 20px;
+    border: 3px solid rgb(28, 28, 28);
+    overflow: hidden;
+}
+
+.progress-fill {
+    background-color: rgb(103, 208, 6);
+    height: 100%;
+    width: 0%;
+}
+
+ button:hover {
+  background-color: #ff3f05;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+h3 {
+    font-family: 'Rajdhani', sans-serif;
+    color: rgb(79,63,74)
+}
+
+h4 {
+    font-family: "Press Start 2P", system-ui;
+    color: rgb(109,81,66)
+}
+
+.level {
+    font-family: 'Rajdhani', sans-serif, black;
+}
+
+/* 1. Definimos el "guion" de la animación de brillo */
+@keyframes brilloOro {
+    0% { box-shadow: 0 0 5px #ffd700; }
+    50% { box-shadow: 0 0 20px #fff5b7; } /* Brilla más fuerte a la mitad */
+    100% { box-shadow: 0 0 5px #ffd700; }
+}
+
+/* 2. Creamos una "Clase de Maestría" */
+.maestria-activa {
+    background: linear-gradient(45deg, #ffd700, #fff5b7, #ffd700) !important;
+    color: black !important;
+    border: 2px solid #b8860b !important;
+    font-weight: bold;
+    /* 3. Aplicamos el guion: dura 2 segundos, es infinito y suave */
+    animation: brilloOro 2s infinite ease-in-out !important;
+    transform: none !important;
+}
+
+@keyframes brillonaranja {
+    0% { box-shadow: 0 0 5px #ff3f05;}
+    50% { box-shadow: 0 0 20px #fb8759;}
+    100% { box-shadow: 0 0 5px #ff3f05;}
+}
+
+.train-btn {
+    background: linear-gradient(45deg, #ff3f05, #fff5b7, #ff3f05);
+    border: solid black;
+    animation: brillonaranja 2s infinite ease-in-out;
+    margin: 15px auto 0;
+    padding: 12px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 0px #9c3734;
+    transition: all 0.2s ease;   
+}
+
+.train-btn:hover {
+    transform: translateY(4px);
+}
+
+@keyframes brilloh1{
+    0% { box-shadow: 0 0 5px rgb(182,160,103) }
+    50% { box-shadow: 0 0 20px rgb(248, 217, 139); } /* Brilla más fuerte a la mitad */
+    100% { box-shadow: 0 0 5px rgb(182,160,103); }
+}
+
+.titulo {
+    font-family: 'SabbathBlack', serif;
+    letter-spacing: 2px;
+    width: max-content;
+    border-radius: 15%;
+    color: rgb(37, 1, 1);   
+    background: linear-gradient(45deg, rgb(182,160,103)); 
+    font-style: italic;
+    animation: brilloh1 2s infinite alternate;
+}
+
+#descansar-btn {
+    margin: 15px auto 0;
+    padding: 12px;
+    background-color: #C24641;
+    color: white; 
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 0px #9c3734;
+    transition: all 0.2s ease;
+}
+
+#descansar-btn:hover {
+    transform: translateY(4px);
+    background-color: #8B4513;
+    box-shadow: 0 0px 0px #6c350f;
+}

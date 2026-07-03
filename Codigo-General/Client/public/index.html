@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arbol de Habilidades</title>
+        <link href='style.css' rel='stylesheet'>
+    </head>
+    <body>
+        <div class= "rapthalia-interfaz">
+            <div>
+                <h1>!Bienvenido Amo Andrik que estudiaremos hoy!</h1>
+                <h3 id="intro-raphtalia"></h3>
+            </div>
+            <br>
+            
+            <div class="contenedor-dialogo">
+                <img src="./img/ComfyUI_00526_.png" alt="Raphtalia" class="img-raphtalia">  
+                <div class="burbuja-dialogo">
+                    <p id="dialogo-raphtalia"></p>
+                </div>
+            </div>
+            <br>
+            <div class="tired-bar">
+                <div class="tired-fill" id="bar-rapthalia"></div>
+            </div>
+            <button id="descansar-btn">Descansar</button>
+        </div>
+        <br>
+        <div class= "escudo-interfaz">
+            <div>
+                <h2 class="titulo">Programacion</h2>
+                    <div class="skill-node" id="node-prog1">
+                        <h3 id="hab-prog"></h3>
+                            <h4 id="desc-prog"></h4>
+                                <p>Nivel: <span class="level" id="nivel-prog">0</span></p>
+
+                        <div class="progress-bar">
+                        <div class="progress-fill" id="bar-prog"></div>
+                        </div>
+
+                    <button class="train-btn" data-tema="prog" id="prog-btn">Entrenar</button>
+                    </div>
+            </div>
+            <br> 
+            <div><h2 class="titulo">Blender 3D</h2>
+                <div class="skill-node" id="node-bl3d1">
+                    <h3 id="hab-bl3d"></h3>
+                    <h4 id="desc-bl3d"></h4>
+                    <p>Nivel: <span class="level" id="nivel-bl3d">0</span></p>
+
+                    <div class="progress-bar">
+                    <div class="progress-fill" id="bar-bl3d"></div>
+                    </div>
+
+                    <button class="train-btn" data-tema="bl3d" id="bl3d-btn">Entrenar</button>
+                </div>
+            </div>
+            <br>   
+            <div><h2 class="titulo">Matematicas</h2>
+                <div class="skill-node" id="node-mate1">
+                    <h3 id="hab-math"></h3>
+                    <h4 id="desc-math"></h4>
+                        <p>Nivel: <span class="level" id="nivel-math">0</span></p>
+
+                    <div class="progress-bar">
+                    <div class="progress-fill" id="bar-math"></div>
+                    </div>
+
+                    <button class="train-btn" data-tema="math" id="mate-btn">Entrenar</button>
+                </div>
+            </div>
+            <br>
+            <div><h2 class="titulo">Conduccion</h2>
+                <div class="skill-node" id="node-conduc1">
+                    <h3 id="hab-cond"></h3>
+                    <h4 id="desc-cond"></h4>
+                    <p>Nivel: <span class="level" id="nivel-cond">0</span></p>
+
+                    <div class="progress-bar" >
+                    <div class="progress-fill" id="bar-cond"></div>
+                    </div>
+
+                    <button class="train-btn" data-tema="cond" id="conduc-btn">Entrenar</button>
+                </div>
+            </div>
+            <br>
+            <div><h2 class="titulo">Finanzas</h2>
+                <div class="skill-node" id="node-finaz1">
+                    <h3 id="hab-finz"></h3>
+                    <h4 id="desc-finz"></h4>
+                    <p>Nivel: <span class="level" id="nivel-finz">0</span></p>
+
+                    <div class="progress-bar">
+                    <div class="progress-fill" id="bar-finz"></div>
+                    </div>
+
+                    <button class="train-btn" data-tema="finz" id="finaz-btn">Entrenar</button>
+                </div>
+            </div>
+            <br>
+            <div><h2 class="titulo">Japones</h2>
+                <div class="skill-node" id="node-lengua1">
+                    <h3 id="hab-japo"></h3>
+                    <h4 id="desc-japo"></h4>
+                    <p>Nivel: <span class="level" id="nivel-japo">0</span></p>
+
+                    <div class="progress-bar">
+                    <div class="progress-fill" id="bar-leng"></div>
+                    </div>
+
+                    <button class="train-btn" data-tema="leng" id="lengua-btn">Entrenar</button>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="../dist/script.js"></script>   
+        <script type="module" src="../dist/raphtalia.js"></script>     
+    </body>
+</html>
