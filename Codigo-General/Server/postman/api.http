@@ -1,0 +1,11 @@
+GET http://localhost:2712/api/progreso
+
+###
+
+POST http://localhost:2712/api/entrenar
+Content-Type: application/json
+
+{
+    "tema" : "prog",
+    "xp" : 50
+}
